@@ -133,7 +133,8 @@ def init_service_wrapper(
     )
 
     if init_llm:
-        checkpoint_dir = os.path.join(project_root, "checkpoints")
+        from acestep.model_downloader import get_checkpoints_dir
+        checkpoint_dir = str(get_checkpoints_dir())
 
         lm_status, lm_success = llm_handler.initialize(
             checkpoint_dir=checkpoint_dir,

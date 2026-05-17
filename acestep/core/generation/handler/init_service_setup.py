@@ -79,6 +79,18 @@ class InitServiceSetupMixin:
                 logger.warning("[initialize_service] Quantization (torchao) is not supported on MPS; disabling.")
                 normalized_quantization = None
 
+        # torch.compile is incompatible with CPU offload: every CPU→GPU transfer
+        # forces a recompilation, causing large temporary VRAM spikes that trigger
+        # OOM even on 24 GB cards. Quantization + offload saves far more memory
+        # than compile saves in speed, so compile loses this conflict.
+        if normalized_compile and getattr(self, "offload_to_cpu", False):
+            logger.warning(
+                "[initialize_service] torch.compile disabled: incompatible with "
+                "offload_to_cpu=True. Every CPU\u2192GPU transfer would force recompilation, "
+                "causing temporary VRAM spikes. Disable offload_to_cpu to use compile."
+            )
+            normalized_compile = False
+
         return normalized_compile, normalized_quantization, mlx_compile_requested
 
     @staticmethod

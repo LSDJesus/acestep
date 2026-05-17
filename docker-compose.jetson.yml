@@ -61,10 +61,10 @@ services:
       - TOKENIZERS_PARALLELISM=false
 
     # ---- Ports ----
-    # Gradio UI on 7860, REST API on 8001
+    # Gradio UI on 17860, REST API on 18001
     ports:
-      - "${GRADIO_PORT:-7860}:7860"
-      - "${API_PORT:-8001}:8001"
+      - "${GRADIO_PORT:-17860}:17860"
+      - "${API_PORT:-18001}:18001"
 
     # ---- Persistent volumes ----
     volumes:
@@ -92,8 +92,8 @@ services:
     # Inherited from Dockerfile; compose-level override for faster feedback
     healthcheck:
       test: >-
-        curl -sf http://localhost:7860/ > /dev/null 2>&1 ||
-        curl -sf http://localhost:8001/health > /dev/null 2>&1 ||
+        curl -sf http://localhost:17860/ > /dev/null 2>&1 ||
+        curl -sf http://localhost:18001/health > /dev/null 2>&1 ||
         exit 1
       interval: 30s
       timeout: 10s

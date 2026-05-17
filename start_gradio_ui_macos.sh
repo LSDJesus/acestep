@@ -82,7 +82,7 @@ export TOKENIZERS_PARALLELISM="false"
 # You can override these by uncommenting and modifying the lines below
 # or by creating a .env file (recommended to survive updates)
 
-: "${PORT:=7860}"
+: "${PORT:=17860}"
 : "${SERVER_NAME:=127.0.0.1}"
 # SERVER_NAME="0.0.0.0"
 SHARE="${SHARE:-}"

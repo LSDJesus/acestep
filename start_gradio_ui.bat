@@ -13,7 +13,7 @@ REM You can override these by uncommenting and modifying the lines below
 REM or by creating a .env file (recommended to survive updates)
 
 REM Server settings
-if not defined PORT set PORT=7860
+if not defined PORT set PORT=17860
 if not defined SERVER_NAME set SERVER_NAME=127.0.0.1
 REM set SERVER_NAME=0.0.0.0
 REM set SHARE=--share

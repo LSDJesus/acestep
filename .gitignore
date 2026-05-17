@@ -3,7 +3,7 @@
 *.mp3
 AlbumArt*.jpg
 Folder.jpg
-
+.claude/
 
 data/
 *.mp3

@@ -7,7 +7,7 @@ Usage:
 	./close_api_server.sh [--port PORT] [--pid PID] [--force]
 
 Defaults:
-	PORT: 8001
+	PORT: 18001
 
 Behavior:
 	- If --pid is provided, stops that PID.
@@ -17,7 +17,7 @@ Behavior:
 EOF
 }
 
-PORT="8002"
+PORT="18002"
 PID=""
 FORCE="0"
 

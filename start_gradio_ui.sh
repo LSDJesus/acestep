@@ -73,14 +73,14 @@ _load_env_file
 # or by creating a .env file (recommended to survive updates)
 
 # Server settings
-: "${PORT:=7860}"
+: "${PORT:=17860}"
 : "${SERVER_NAME:=127.0.0.1}"
 # SERVER_NAME="0.0.0.0"
 SHARE="${SHARE:-}"
 # SHARE="--share"
 
 # Reset LANGUAGE if it contains an invalid value (e.g. system locale like en_CA:en)
-case "$LANGUAGE" in
+case "${LANGUAGE:-}" in
     en|zh|he|ja) ;;
     *) unset LANGUAGE ;;
 esac

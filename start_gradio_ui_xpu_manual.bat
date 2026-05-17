@@ -27,7 +27,7 @@ set TORCHAUDIO_USE_BACKEND=ffmpeg
 REM ==================== Server Configuration ====================
 REM Default values
 
-if not defined PORT set PORT=7860
+if not defined PORT set PORT=17860
 if not defined SERVER_NAME set SERVER_NAME=127.0.0.1
 REM set SERVER_NAME=0.0.0.0
 REM set SHARE=--share

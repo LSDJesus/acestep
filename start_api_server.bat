@@ -9,7 +9,7 @@ REM Uncomment and modify the parameters below as needed
 REM Server settings
 set HOST=127.0.0.1
 REM set HOST=0.0.0.0
-set PORT=8001
+set PORT=18001
 
 REM API key for authentication (optional)
 REM set API_KEY=--api-key sk-your-secret-key

@@ -520,6 +520,11 @@ class LLMHandler:
             (status_message, success)
         """
         try:
+            # Unload any existing LLM instance before re-initializing to prevent
+            # stale KV cache tensors from accumulating in VRAM across reinits.
+            if self.llm_initialized:
+                logger.info("[initialize] Unloading existing LLM before re-initialization to free VRAM.")
+                self.unload()
             if device == "auto":
                 if torch.cuda.is_available():
                     device = "cuda"

@@ -87,7 +87,7 @@ export MIOPEN_FIND_MODE="FAST"
 export TOKENIZERS_PARALLELISM="false"
 
 # ==================== Server Configuration ====================
-: "${PORT:=7860}"
+: "${PORT:=17860}"
 : "${SERVER_NAME:=127.0.0.1}"
 # SERVER_NAME="0.0.0.0"
 SHARE="${SHARE:-}"

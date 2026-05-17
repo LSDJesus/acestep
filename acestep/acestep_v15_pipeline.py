@@ -59,7 +59,7 @@ try:
         VRAM_AUTO_OFFLOAD_THRESHOLD_GB,
         is_mps_platform,
     )
-    from .model_downloader import ensure_lm_model
+    from .model_downloader import ensure_lm_model, get_checkpoints_dir
 except ImportError:
     # When executed as a script: `python acestep/acestep_v15_pipeline.py`
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,7 +81,7 @@ except ImportError:
         VRAM_AUTO_OFFLOAD_THRESHOLD_GB,
         is_mps_platform,
     )
-    from acestep.model_downloader import ensure_lm_model
+    from acestep.model_downloader import ensure_lm_model, get_checkpoints_dir
 
 
 def create_demo(init_params=None, language="en"):
@@ -212,7 +212,7 @@ def main():
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument(
-        "--port", type=int, default=7860, help="Port to run the gradio server on"
+        "--port", type=int, default=17860, help="Port to run the gradio server on"
     )
     parser.add_argument("--share", action="store_true", help="Create a public link")
     parser.add_argument("--debug", action="store_true", help="Enable debug mode")
@@ -543,7 +543,7 @@ def main():
                         args.init_llm = False
 
                 if args.init_llm and args.lm_model_path:
-                    checkpoint_dir = os.path.join(project_root, "checkpoints")
+                    checkpoint_dir = str(get_checkpoints_dir())
 
                     # Ensure LM model is downloaded before initialization
                     prefer_source = None

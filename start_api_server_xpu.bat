@@ -23,7 +23,7 @@ set TORCHAUDIO_USE_BACKEND=ffmpeg
 REM ==================== Server Configuration ====================
 set HOST=127.0.0.1
 REM set HOST=0.0.0.0
-set PORT=8001
+set PORT=18001
 
 REM ==================== Model Configuration ====================
 REM API key for authentication (optional)
